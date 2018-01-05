@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Logowanie</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>
+        Email
+      </ion-label>
+      <ion-input type="email"
+                 value=""
+                 [(ngModel)]="user.email">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        Hasło
+      </ion-label>
+      <ion-input type="password"
+                 value=""
+                 [(ngModel)]="user.password">
+      </ion-input>
+    </ion-item>
+
+    <ion-item text-center
+              style="padding-top: 10%;">
+      <a (click)="goToSignUp()">
+        Nie masz konta? Kliknij aby założyć nowe
+      </a>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button
+            color="primary"
+            (click)="signin()"
+            block>
+      ZALOGUJ
+    </button>
+  </div>
+
+</ion-content>

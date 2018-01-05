@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Profil</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div *ngFor="let p of profiles | async">
+
+        <ion-card>
+
+            <div></div>
+
+            <div>
+                <img [src]="p.img == null ? '' : p.img" (click)="tog()" alt="{{snapshot | async | json}}"/>
+            </div>
+
+            <div *ngIf="showSrc">
+                <ion-item>
+                    <ion-textarea type="number" placeholder="Wprowadź adres nowego zdjęcia"
+                                  [(ngModel)]="phot"></ion-textarea>
+                </ion-item>
+                <ion-item center text-center="">
+                    <button ion-button text-center color="dark" (click)="updatePhoto()">ZMIEŃ ZDJĘCIE</button>
+                </ion-item>
+            </div>
+
+            <ion-card-content>
+                <ion-card-title>
+                    <div left text-left>
+                        <ion-icon name="contact"></ion-icon>
+                        {{p.firstName}} {{p.lastName}}
+                    </div>
+                </ion-card-title>
+                <ion-card-title>
+                    <div left text-left>
+                        <ion-icon name="copy" (click)="disp()"></ion-icon>
+                        O mnie:
+                        <div style="font-size: 70%;">
+                            {{p.about}}
+                        </div>
+                    </div>
+                </ion-card-title>
+                <div *ngIf="!display">
+                    <ion-input type="text" placeholder="Nowy opis" [(ngModel)]="desc"></ion-input>
+                    <ion-item center text-center>
+                        <button ion-button text-center color="primary" (click)="updateDesc()">ZMIEŃ OPIS</button>
+                    </ion-item>
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

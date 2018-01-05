@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Nowy post
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-item>
+            <!--<ion-avatar item-start>-->
+                <!--<img src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png">-->
+            <!--</ion-avatar>-->
+            <h2>{{of}} {{ol}}</h2>
+            <p>{{p1.date | date}}</p>
+        </ion-item>
+        <img *ngIf="showImage" src="">
+        <ion-item *ngIf="showInputUrl">
+            <ion-input type="number" placeholder="Number Input with no label"></ion-input>
+        </ion-item>
+
+        <ion-card-content>
+            <ion-item>
+                <ion-textarea placeholder="Treść posta ..." [(ngModel)]="p1.content"></ion-textarea>
+                {{snapshot | async | json}}
+            </ion-item>
+        </ion-card-content>
+        <ion-row>
+            <ion-col>
+                <button ion-button icon-left clear small (click)="like(i)">
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <!--<div>232</div>-->
+                </button>
+                <button ion-button icon-left clear small (click)="dislike(i)" title="{{snapshot | async | json}}">
+                    <ion-icon name="thumbs-down"></ion-icon>
+                    <!--<div>323</div>-->
+                </button>
+
+            </ion-col>
+        </ion-row>
+    </ion-card>
+
+    <div padding>
+        <button ion-button color="primary" block (click)="addPost()">DODAJ</button>
+    </div>
+</ion-content>

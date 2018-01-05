@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Załóż konto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+      <ion-item>
+          <ion-label floating>
+              Imie
+          </ion-label>
+          <ion-input type="email"
+                     value=""
+                     [(ngModel)]="profile.firstName">
+          </ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>
+              Nazwisko
+          </ion-label>
+          <ion-input type="email"
+                     value=""
+                     [(ngModel)]="profile.lastName">
+          </ion-input>
+      </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        Email
+      </ion-label>
+      <ion-input type="email"
+                 value=""
+                 [(ngModel)]="user.email">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        Hasło
+      </ion-label>
+      <ion-input type="password"
+                 value=""
+                 [(ngModel)]="user.password">
+      </ion-input>
+    </ion-item>
+
+    <ion-item text-center>
+      <a (click)="goToSignIn()">Masz już konto? Kliknij aby się zalogować !</a>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button
+            color="primary"
+            (click)="signup()"
+            block>
+      UTWÓRZ KONTO
+    </button>
+  </div>
+</ion-content>
+
